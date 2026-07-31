@@ -1,0 +1,12 @@
+# Cloudflare Pages reads this file automatically.
+# Sensible security headers for a static marketing site.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Images rarely change — let browsers cache them for a week.
+/assets/img/*
+  Cache-Control: public, max-age=604800
