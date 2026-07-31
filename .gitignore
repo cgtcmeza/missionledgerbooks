@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / OS cruft
+Thumbs.db
+*.swp
+*~
+
+# Dependencies (not used, but ignore just in case)
+node_modules/
+
+# Local dev
+*.log
