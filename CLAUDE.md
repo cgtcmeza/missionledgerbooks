@@ -39,7 +39,7 @@ Mission Ledger Books/
 - **Type:** Fraunces (display serif) + Inter (body).
 - **Voice:** warm, clear, trustworthy, jargon-free. We are bookkeepers, not tax preparers — we
   coordinate with the client's CPA but do not file returns (keep this accurate in copy).
-- **Founder:** Pamela Kendall, QuickBooks Certified ProAdvisor, 15+ years experience (bio on About).
+- **Founder:** Michelle Dodd, QuickBooks Certified ProAdvisor, 15+ years experience (bio on About).
 - **Contact:** phone (314) 397-8863 → `tel:+13143978863` (⚠ 314 is a St. Louis area code — confirm/replace
   with a Las Vegas number); email `hello@missionledgerbooks.com`; **Las Vegas, NV**; by appointment
   Mon–Fri; serves clients nationwide/remotely.
