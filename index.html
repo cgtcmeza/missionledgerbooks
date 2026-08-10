@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=3">
+  <link rel="stylesheet" href="assets/css/styles.css?v=6">
 
   <!-- Structured data: helps search engines list this as a local accounting service -->
   <script type="application/ld+json">
@@ -109,91 +109,109 @@
   <main id="main">
 
     <!-- ================================================================
-         1. HERO
+         1. HERO  (dark, graphic header)
          ================================================================ -->
     <section class="hero">
       <div class="container">
-        <div class="hero__inner">
-          <p class="eyebrow">Bookkeeping for Mission-Driven Organizations</p>
-          <h1>Clear, reliable books <span class="accent-serif">so you can focus</span> on your mission.</h1>
-          <p class="lead">
-            Mission Ledger Books gives nonprofits and small-to-midsize businesses accurate,
-            up-to-date books, board-ready reports, and the kind of personalized support that
-            makes financial management feel simple. No job is too small or too big.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="contact.html">Get Started Today</a>
-            <a class="btn btn--outline btn--lg" href="services.html">Explore Services</a>
-          </div>
-          <div class="hero__trust">
-            <span><strong>15+ years</strong> experience</span>
-            <span class="divider" aria-hidden="true"></span>
-            <span><strong>Nonprofit</strong> specialists</span>
-            <span class="divider" aria-hidden="true"></span>
-            <span><strong>QuickBooks</strong> ProAdvisor</span>
-          </div>
-        </div>
-
-        <!-- Financial-snapshot visual (inline SVG + numbers; no stock photo needed) -->
-        <div class="hero__visual reveal">
-          <div class="snapshot">
-            <div class="snapshot__chip snapshot__chip--tl" aria-hidden="true">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        <div class="hero__grid">
+          <div class="hero__inner">
+            <span class="hero__chip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+              QuickBooks Certified ProAdvisor <span class="dot" aria-hidden="true">·</span> Las Vegas &amp; Nationwide
+            </span>
+            <h1 class="hero__title">Expert bookkeeping for <span class="hl">nonprofits &amp; small businesses.</span></h1>
+            <p class="hero__sub">
+              Accurate books, board-ready reports, and real human support — so you can stop
+              worrying about the numbers and focus on your mission.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--lg" href="contact.html">Get Started Free</a>
+              <a class="btn btn--outline btn--lg" href="services.html">Explore Services</a>
+            </div>
+            <div class="hero__proof">
+              <span class="stars" role="img" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.8.94-5.5-4-3.9 5.53-.8z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.8.94-5.5-4-3.9 5.53-.8z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.8.94-5.5-4-3.9 5.53-.8z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.8.94-5.5-4-3.9 5.53-.8z"/></svg>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.47 5 5.53.8-4 3.9.94 5.5L10 14.9l-4.94 2.8.94-5.5-4-3.9 5.53-.8z"/></svg>
               </span>
-              <div><strong>Reconciled</strong><span>to the penny</span></div>
+              <span class="divider" aria-hidden="true"></span>
+              <span>Trusted by mission-driven organizations</span>
             </div>
+          </div>
 
-            <div class="snapshot__top">
-              <div class="snapshot__title">Monthly Financial Snapshot<span>Prepared by Mission Ledger Books</span></div>
-              <span class="snapshot__badge">Up&nbsp;to&nbsp;date</span>
-            </div>
+          <!-- Financial-dashboard graphic (inline SVG; no stock photo needed) -->
+          <div class="hero__visual reveal">
+            <div class="dashcard">
+              <div class="dashcard__chip dashcard__chip--tr" aria-hidden="true">
+                <span class="ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                </span>
+                <div><strong>Reconciled</strong><span>to the penny</span></div>
+              </div>
 
-            <div class="snapshot__figure">
-              <div class="label">Net Operating Surplus · YTD</div>
-              <div class="value">$248,910 <small>▲ 12.4%</small></div>
-            </div>
+              <div class="dashcard__head">
+                <div>
+                  <div class="dashcard__title">Financial Snapshot</div>
+                  <div class="dashcard__sub">Prepared by Mission Ledger Books</div>
+                </div>
+                <span class="dashcard__badge">Up&nbsp;to&nbsp;date</span>
+              </div>
 
-            <div class="snapshot__bars" aria-hidden="true">
-              <div class="snapshot__bar"><span style="height:52%"></span></div>
-              <div class="snapshot__bar"><span style="height:64%"></span></div>
-              <div class="snapshot__bar"><span style="height:48%"></span></div>
-              <div class="snapshot__bar"><span style="height:78%"></span></div>
-              <div class="snapshot__bar"><span style="height:70%"></span></div>
-              <div class="snapshot__bar"><span style="height:92%"></span></div>
-            </div>
+              <div class="dashcard__figure">
+                <div class="dashcard__label">Net Operating Surplus · YTD</div>
+                <div class="dashcard__value">$248,910 <span class="up">▲ 12.4%</span></div>
+              </div>
 
-            <div class="snapshot__chip snapshot__chip--br" aria-hidden="true">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
-              </span>
-              <div><strong>Board-ready</strong><span>reports monthly</span></div>
+              <div class="dashcard__chart" aria-hidden="true">
+                <svg viewBox="0 0 336 100" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="dcArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#4FB088" stop-opacity="0.30"/>
+                      <stop offset="1" stop-color="#4FB088" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,82 C 55,76 80,66 120,56 C 160,46 195,50 235,38 C 275,26 300,20 336,15 L336,100 L0,100 Z" fill="url(#dcArea)"/>
+                  <path class="line" d="M0,82 C 55,76 80,66 120,56 C 160,46 195,50 235,38 C 275,26 300,20 336,15" fill="none" stroke="#1F6E4C" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="336" cy="15" r="4.5" fill="#1F6E4C" stroke="#fff" stroke-width="2.5"/>
+                </svg>
+              </div>
+
+              <div class="dashcard__foot">
+                <div class="dashcard__stat"><b>100%</b><span>Reconciled</span></div>
+                <div class="dashcard__stat"><b>5-day</b><span>Monthly close</span></div>
+                <div class="dashcard__stat"><b>On&nbsp;time</b><span>Every report</span></div>
+              </div>
+
+              <div class="dashcard__chip dashcard__chip--bl" aria-hidden="true">
+                <span class="ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
+                </span>
+                <div><strong>Board-ready</strong><span>reports monthly</span></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ================================================================
-         2. TRUST BAR
-         ================================================================ -->
-    <section class="trustbar" aria-label="What sets us apart">
-      <div class="container">
-        <div class="trustbar__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span><strong>Secure &amp; confidential</strong> handling</span>
-        </div>
-        <div class="trustbar__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-4 4"/></svg>
-          <span><strong>Nonprofit</strong> fund accounting</span>
-        </div>
-        <div class="trustbar__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v4"/></svg>
-          <span><strong>QuickBooks</strong> Certified ProAdvisor</span>
-        </div>
-        <div class="trustbar__item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span><strong>Responsive</strong> human support</span>
+        <!-- Trust strip grounding the hero -->
+        <div class="hero__strip">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span><strong>Secure &amp; confidential</strong> handling</span>
+          </div>
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 9l-5 5-3-3-4 4"/></svg>
+            <span><strong>Nonprofit</strong> fund accounting</span>
+          </div>
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v4"/></svg>
+            <span><strong>QuickBooks</strong> Certified ProAdvisor</span>
+          </div>
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span><strong>Responsive</strong> human support</span>
+          </div>
         </div>
       </div>
     </section>
@@ -661,6 +679,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=3"></script>
+  <script src="assets/js/main.js?v=4"></script>
 </body>
 </html>
