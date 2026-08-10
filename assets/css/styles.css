@@ -159,6 +159,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
+  text-wrap: balance;   /* balances heading lines, avoids one-word widows */
 }
 h1 { font-optical-sizing: auto; }
 p { margin: 0; }
@@ -191,6 +192,15 @@ p { margin: 0; }
   transition: top var(--dur) var(--ease);
 }
 .skip-link:focus { top: var(--space-4); }
+
+/* Slim scroll-progress indicator (built by main.js) */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+  z-index: 300; pointer-events: none;
+  transition: width 0.08s linear;
+}
+@media (prefers-reduced-motion: reduce) { .scroll-progress { display: none; } }
 
 /* ------------------------------------------------------------------
    3. LAYOUT HELPERS + SECTION THEMES
@@ -254,6 +264,7 @@ p { margin: 0; }
   line-height: var(--lh-snug);
   color: var(--ink-70);
   font-weight: var(--fw-body);
+  text-wrap: pretty;   /* avoids orphaned last words in lead copy */
 }
 .section--navy .lead,
 .cta-band .lead { color: var(--paper-70); }
@@ -405,12 +416,15 @@ p { margin: 0; }
 }
 .nav__links a:hover,
 .nav__links a[aria-current="page"] { color: var(--ink); }
-.nav__links a[aria-current="page"]::after {
+.nav__links a::after {
   content: "";
   position: absolute; left: 0; right: 0; bottom: -3px;
-  height: 2px; background: var(--green);
-  border-radius: 2px;
+  height: 2px; background: var(--green); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur) var(--ease);
 }
+.nav__links a:hover::after,
+.nav__links a[aria-current="page"]::after { transform: scaleX(1); }
 
 .nav-toggle {
   display: none;
@@ -452,7 +466,7 @@ p { margin: 0; }
     border-bottom: var(--border-hairline);
     font-size: 1.08rem;
   }
-  .nav__links a[aria-current="page"]::after { display: none; }
+  .nav__links a::after { display: none; }
   .nav .btn { margin-top: var(--space-5); }
 }
 
@@ -581,14 +595,16 @@ p { margin: 0; }
 .hero__trust {
   margin-top: var(--space-7);
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-5);
+  flex-wrap: nowrap;
+  gap: var(--space-4);
   align-items: center;
   color: var(--ink-55);
-  font-size: var(--fs-small);
+  font-size: 0.82rem;
 }
-.hero__trust .divider { width: 1px; height: 20px; background: var(--ink-12); }
+.hero__trust > span { white-space: nowrap; }
+.hero__trust .divider { width: 1px; height: 18px; background: var(--ink-12); flex: none; }
 .hero__trust strong { color: var(--ink); font-weight: var(--fw-semi); }
+@media (max-width: 640px) { .hero__trust { flex-wrap: wrap; gap: var(--space-3) var(--space-4); } }
 
 @media (max-width: 940px) {
   .hero .container { grid-template-columns: 1fr; }
@@ -605,7 +621,7 @@ p { margin: 0; }
   border: 1px solid var(--ink-08);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: var(--space-6);
+  padding: 3.25rem var(--space-6) var(--space-6);
 }
 .snapshot__top {
   display: flex; align-items: center; justify-content: space-between;
@@ -687,10 +703,10 @@ p { margin: 0; }
 .snapshot__chip .ic svg { width: 18px; height: 18px; }
 .snapshot__chip strong { display: block; font-family: var(--font-display); font-weight: var(--fw-heading); color: var(--ink); }
 .snapshot__chip span { color: var(--ink-55); font-size: 0.78rem; }
-.snapshot__chip--tl { top: -22px; left: -22px; }
-.snapshot__chip--br { bottom: -24px; right: -18px; }
+.snapshot__chip--tl { top: -18px; left: -16px; }
+.snapshot__chip--br { bottom: -22px; right: -16px; }
 @media (max-width: 480px) {
-  .snapshot__chip--tl { left: -6px; top: -18px; }
+  .snapshot__chip--tl { left: -6px; top: -16px; }
   .snapshot__chip--br { right: -4px; }
 }
 
@@ -704,12 +720,15 @@ p { margin: 0; }
 }
 .trustbar .container {
   display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: clamp(1.5rem, 5vw, 3.5rem);
+  flex-wrap: nowrap; gap: clamp(1rem, 2.8vw, 2.4rem);
   text-align: center;
 }
 .trustbar__item {
-  display: inline-flex; align-items: center; gap: var(--space-3);
-  color: var(--paper-70); font-size: var(--fs-small);
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  color: var(--paper-70); font-size: 0.85rem; white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .trustbar .container { flex-wrap: wrap; gap: var(--space-4) var(--space-6); }
 }
 .trustbar__item svg { width: 22px; height: 22px; color: var(--green-bright); flex: none; }
 .trustbar__item strong { color: var(--paper); font-weight: var(--fw-semi); }
@@ -734,7 +753,38 @@ p { margin: 0; }
               border-color var(--dur) var(--ease),
               box-shadow var(--dur) var(--ease);
 }
-.card--hover:hover { transform: translateY(-5px); border-color: var(--green-25); }
+/* Subtle universal lift on any card */
+.card:hover { transform: translateY(-4px); box-shadow: 0 30px 56px -34px rgba(15, 32, 50, 0.5); }
+
+/* Richer, satisfying hover for feature/service cards */
+.card--hover { position: relative; overflow: hidden; }
+.card--hover::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--gold));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.card--hover:hover {
+  transform: translateY(-8px);
+  border-color: var(--green-25);
+  box-shadow: 0 34px 66px -30px rgba(15, 32, 50, 0.58);
+}
+.card--hover:hover::after { transform: scaleX(1); }
+.card--hover .card__icon, .card--hover .ic {
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease),
+              transform var(--dur) var(--ease);
+}
+.card--hover:hover .card__icon, .card--hover:hover .ic {
+  background: var(--green); color: #fff; transform: scale(1.08) rotate(-4deg);
+}
+.card--hover h3 { transition: color var(--dur) var(--ease); }
+.card--hover:hover h3 { color: var(--green); }
+.section--navy .card--hover:hover { border-color: var(--green-bright-25); }
+.section--navy .card--hover:hover h3 { color: var(--green-bright); }
+@media (prefers-reduced-motion: reduce) {
+  .card:hover, .card--hover:hover { transform: none; }
+}
+
 .card h3 { margin-bottom: var(--space-3); color: var(--ink); }
 .card p { color: var(--ink-70); }
 

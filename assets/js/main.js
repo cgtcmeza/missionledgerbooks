@@ -37,16 +37,38 @@
     });
   }
 
-  /* ---- Header state on scroll --------------------------------------- */
+  /* ---- Header state + scroll-progress bar --------------------------- */
   var header = document.querySelector('.site-header');
-  if (header) {
-    var onScroll = function () {
+  var reduceMotion = window.matchMedia &&
+                     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var progress = null;
+  if (!reduceMotion) {
+    progress = document.createElement('div');
+    progress.className = 'scroll-progress';
+    progress.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(progress);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (header) {
       if (window.scrollY > 8) header.classList.add('is-scrolled');
       else header.classList.remove('is-scrolled');
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    }
+    if (progress) {
+      var h = document.documentElement;
+      var max = (h.scrollHeight - h.clientHeight) || 1;
+      progress.style.width = Math.min(100, (window.scrollY / max) * 100) + '%';
+    }
+    ticking = false;
   }
+  function requestScroll() {
+    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+  }
+  onScroll();
+  window.addEventListener('scroll', requestScroll, { passive: true });
+  window.addEventListener('resize', requestScroll);
 
   /* ---- Scroll-reveal ------------------------------------------------- */
   var revealEls = document.querySelectorAll('.reveal');
