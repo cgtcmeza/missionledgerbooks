@@ -39,12 +39,15 @@ Mission Ledger Books/
 - **Type:** Fraunces (display serif) + Inter (body).
 - **Voice:** warm, clear, trustworthy, jargon-free. We are bookkeepers, not tax preparers — we
   coordinate with the client's CPA but do not file returns (keep this accurate in copy).
-- **Founder:** Michelle Dodd, QuickBooks Certified ProAdvisor, 15+ years experience (bio on About).
+- **Founder:** Michelle Dodd, **Intuit-Certified in QuickBooks**, **20+ years** accounting/finance experience
+  (AP/AR, general ledger, reconciliations, reporting, payroll). Full bio + systems strip on About.
+  Systems she works across: QuickBooks, SAP Concur, BlackLine, Oracle NetSuite, Sage Intacct, MS Dynamics GP.
 - **Contact:** phone (314) 397-8863 → `tel:+13143978863` (⚠ 314 is a St. Louis area code — confirm/replace
   with a Las Vegas number); email `hello@missionledgerbooks.com`; **Las Vegas, NV**; by appointment
   Mon–Fri; serves clients nationwide/remotely.
-- **Only real credentials:** QuickBooks Certified ProAdvisor is real; do NOT claim Xero "certified"
-  (Xero is only a tool she works in). Stats (15+ yrs, 98% retention, 100% on-time) confirmed accurate.
+- **Only real credentials:** "Intuit-Certified in QuickBooks" (per her bio — NOT "ProAdvisor" unless she
+  confirms that term). Do NOT mention Xero anywhere (removed 2026-08-03 — not in her bio). Stats
+  (20+ yrs, 98% retention, 100% on-time) confirmed accurate.
 - **Reviews on home page are PLACEHOLDERS** (Sarah R. / Marcus T. / Denise L.) — replace with real
   client reviews before the site takes on prospects.
 
