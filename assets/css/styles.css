@@ -845,7 +845,12 @@ p { margin: 0; }
 .stat__num {
   font-family: var(--font-display); font-weight: var(--fw-heavy);
   font-size: clamp(2.4rem, 5.5vw, 3.6rem); color: var(--green); line-height: 1;
+  white-space: nowrap;   /* keep multi-part figures like "5-day" on one line */
 }
+/* Inline stats sit in a narrower card column — smaller so every figure
+   stays on ONE line and all three numbers + labels line up level. */
+.stats--inline .stat__num { font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+.stats--inline .stat__label { margin-top: var(--space-3); }
 .stat__label {
   font-size: var(--fs-small); color: var(--ink-70); margin-top: var(--space-2);
   letter-spacing: 0.02em;
