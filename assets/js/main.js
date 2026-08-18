@@ -131,6 +131,40 @@
     }
   }
 
+  /* ---- Hero scroll-exit (parallax fade as you scroll past) ---------- */
+  var heroFades = document.querySelectorAll('.js-hero-fade');
+  if (heroFades.length && !reduceMotion) {
+    var fadeUpdate = function () {
+      var vh = window.innerHeight || 800;
+      var y = window.scrollY || window.pageYOffset || 0;
+      var p = Math.min(1, y / (vh * 0.75));
+      var op = String(1 - p);
+      var tf = 'translateY(' + (p * -60) + 'px)';
+      for (var i = 0; i < heroFades.length; i++) {
+        heroFades[i].style.opacity = op;
+        heroFades[i].style.transform = tf;
+      }
+    };
+    fadeUpdate();
+    window.addEventListener('scroll', fadeUpdate, { passive: true });
+  }
+
+  /* ---- Animated check-off for checklists ---------------------------- */
+  var lists = document.querySelectorAll('.checklist');
+  if (lists.length) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      lists.forEach(function (l) { l.classList.add('checklist--animate', 'is-checked'); });
+    } else {
+      lists.forEach(function (l) { l.classList.add('checklist--animate'); });
+      var listObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-checked'); listObs.unobserve(e.target); }
+        });
+      }, { threshold: 0.2 });
+      lists.forEach(function (l) { listObs.observe(l); });
+    }
+  }
+
   /* ---- Footer year --------------------------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

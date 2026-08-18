@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=7">
+  <link rel="stylesheet" href="assets/css/styles.css?v=8">
 
   <!-- Structured data: helps search engines list this as a local accounting service -->
   <script type="application/ld+json">
@@ -95,6 +95,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <a class="btn btn--primary" href="contact.html">Get Started</a>
@@ -112,7 +113,15 @@
          1. HERO  (dark, graphic header)
          ================================================================ -->
     <section class="hero">
-      <div class="container">
+      <div class="hero__watermark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 18.5l5.5-5 3.5 3 6-6.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22.5 9.5H26V13" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 30c3.4-1.7 6.6-1.7 10 0V23c-3.4-1.7-6.6-1.7-10 0v7z" stroke-linejoin="round"/>
+          <path d="M29 30c-3.4-1.7-6.6-1.7-10 0V23c3.4-1.7 6.6-1.7 10 0v7z" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="container js-hero-fade">
         <div class="hero__grid">
           <div class="hero__inner">
             <span class="hero__chip">
@@ -152,9 +161,20 @@
               </div>
 
               <div class="dashcard__head">
-                <div>
-                  <div class="dashcard__title">Financial Snapshot</div>
-                  <div class="dashcard__sub">Prepared by Mission Ledger Books</div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span class="dashcard__brand" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="1" width="38" height="38" rx="10" fill="#16283B"/>
+                      <path d="M10 18.5l5.5-5 3.5 3 6-6.5" stroke="#4FB088" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M22.5 9.5H26V13" stroke="#4FB088" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M9 30c3.4-1.7 6.6-1.7 10 0V23c-3.4-1.7-6.6-1.7-10 0v7z" stroke="#D8BE8C" stroke-width="1.8" stroke-linejoin="round"/>
+                      <path d="M29 30c-3.4-1.7-6.6-1.7-10 0V23c3.4-1.7 6.6-1.7 10 0v7z" stroke="#D8BE8C" stroke-width="1.8" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="dashcard__title">Financial Snapshot</div>
+                    <div class="dashcard__sub">Prepared by Mission Ledger Books</div>
+                  </div>
                 </div>
                 <span class="dashcard__badge">Up&nbsp;to&nbsp;date</span>
               </div>
@@ -457,6 +477,54 @@
     </section>
 
     <!-- ================================================================
+         MEET MICHELLE  (founder — adds validity)
+         ================================================================ -->
+    <section class="section section--paper founder-home" id="meet-michelle">
+      <div class="container">
+        <div class="split">
+          <div class="split__media reveal">
+            <div class="founder-card">
+              <div class="founder-avatar" aria-hidden="true">MD</div>
+              <h3 class="founder-name">Michelle Dodd</h3>
+              <p class="founder-role">Founder &amp; Bookkeeping Professional</p>
+              <div class="pill-row" style="justify-content:center;">
+                <span class="pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                  Intuit-Certified in QuickBooks
+                </span>
+              </div>
+              <ul class="founder-facts">
+                <li>20+ years in accounting &amp; finance</li>
+                <li>Nonprofit &amp; small-business focus</li>
+                <li>Based in Las Vegas, Nevada</li>
+              </ul>
+            </div>
+          </div>
+          <div class="split__text reveal" data-delay="1">
+            <p class="eyebrow">Meet the Founder</p>
+            <h2 class="h2">The person behind your books.</h2>
+            <p class="lead mt-4">
+              Mission Ledger Books is led by Michelle Dodd, who brings more than 20 years of
+              accounting and finance experience to every client — accounts payable and receivable,
+              general ledger, reconciliations, reporting, and payroll.
+            </p>
+            <p class="mt-5" style="color: var(--ink-70);">
+              Intuit-Certified in QuickBooks and fluent across the major accounting systems, she
+              works on one simple promise: accurate records, clear communication, and dependable
+              service — so you can focus on running your business.
+            </p>
+            <div class="hero__actions mt-6">
+              <a class="btn btn--primary" href="about.html">More About Michelle</a>
+              <a class="btn btn--ghost" href="contact.html">Work with us
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
          7. REVIEWS  (navy drama section)
          ⚠ PLACEHOLDER REVIEWS — replace the three quotes and names below with
          real client reviews before launch. Keep the same card structure.
@@ -561,41 +629,6 @@
       </div>
     </section>
 
-    <!-- ================================================================
-         9. FAQ (compact)
-         ================================================================ -->
-    <section class="section section--mist" id="faq">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="section-index" aria-hidden="true">06</span>
-          <p class="eyebrow">Good to Know</p>
-          <h2 class="h2">Frequently asked questions.</h2>
-        </div>
-
-        <div class="faq reveal">
-          <details>
-            <summary>Do you work with organizations outside Las Vegas?</summary>
-            <p>Yes. We're based in Las Vegas, Nevada and work with clients across the country. Everything can be handled securely and remotely — cloud accounting, encrypted document sharing, and video calls — so location is never a barrier.</p>
-          </details>
-          <details>
-            <summary>We're behind on our books. Can you still help?</summary>
-            <p>Absolutely — catch-up and clean-up work is one of our specialties. We'll assess how far behind things are, give you a clear scope, and get your books current and reconciled before moving you onto a steady monthly rhythm.</p>
-          </details>
-          <details>
-            <summary>Do you file our taxes?</summary>
-            <p>We're bookkeepers, not tax preparers, so we don't file returns — but we make tax time painless. We deliver clean, reconciled, year-end-ready books and coordinate directly with your CPA or tax preparer so nothing falls through the cracks.</p>
-          </details>
-          <details>
-            <summary>Which accounting software do you use?</summary>
-            <p>We work primarily in QuickBooks Online, and we're experienced across major systems including SAP Concur, BlackLine, Oracle NetSuite, Sage Intacct, and Microsoft Dynamics GP. If you already have a system, we'll work in it; if you're starting fresh, we'll set up the best fit.</p>
-          </details>
-          <details>
-            <summary>How do we get started?</summary>
-            <p>It starts with a free, no-pressure consultation. Reach out through our contact page and we'll set up a quick call to learn about your organization and outline exactly how we can help.</p>
-          </details>
-        </div>
-      </div>
-    </section>
 
     <!-- ================================================================
          10. CLOSING CTA BAND
@@ -650,6 +683,7 @@
           <a href="services.html">Services</a>
           <a href="pricing.html">Pricing</a>
           <a href="about.html">About</a>
+          <a href="faq.html">FAQ</a>
           <a href="contact.html">Contact</a>
         </div>
 
@@ -679,6 +713,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=8"></script>
 </body>
 </html>
