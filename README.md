@@ -15,10 +15,13 @@ every `git push` updates the live site automatically.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Home — hero, services overview, who we serve, how it works, testimonial, pricing teaser, FAQ |
+| `index.html` | Home — hero, services overview, who we serve, how it works, founder, reviews, pricing teaser, latest blog posts + Subscribe |
 | `services.html` | Detailed services + nonprofit specialty + what's included |
 | `pricing.html` | Three flat-fee plans + pricing FAQ |
-| `about.html` | Story, values, and approach |
+| `about.html` | Story, founder (Michelle Dodd + photo), values, and approach |
+| `faq.html` | Common questions, grouped |
+| `blog.html` | The blog — every article, newest first (filled from `blog/posts.json`) + Subscribe |
+| `blog/*.html` | Individual articles |
 | `contact.html` | Contact form (Web3Forms) + direct contact details |
 | `thank-you.html` | Post-submit confirmation page |
 
@@ -30,12 +33,17 @@ Mission Ledger Books/
 ├── services.html
 ├── pricing.html
 ├── about.html
+├── faq.html
+├── blog.html
 ├── contact.html
 ├── thank-you.html
+├── blog/                  ← published articles + posts.json (the list of posts)
+├── blog-drafts/           ← monthly drafts waiting for approval (git-ignored, never public)
+├── tools/                 ← blog.py (draft / publish helper) + post-template.html
 ├── assets/
 │   ├── css/styles.css     ← ALL styling; design tokens live in :root at the top
 │   ├── js/main.js         ← nav toggle, header scroll state, scroll-reveal, count-up
-│   └── img/               ← logo/photos (brand mark is currently inline SVG)
+│   └── img/               ← logo/photos (brand mark is inline SVG; Michelle's photo = michelle-dodd.jpg)
 ├── robots.txt
 ├── sitemap.xml
 ├── CLAUDE.md              ← house rules for how this site is built
@@ -53,10 +61,31 @@ Mission Ledger Books/
 - **Shared header & footer** are byte-for-byte identical on every page (only the active nav
   link's `aria-current="page"` differs).
 
+## The monthly blog (auto-drafted, you approve)
+
+A scheduled Claude task writes **one draft article on the 1st of every month** into
+`blog-drafts/` (git-ignored, so a draft can never go live by accident). You read it, then say
+**"publish the [month] blog post"** — or run it yourself:
+
+```
+python3 tools/blog.py list                          # what's published / waiting
+python3 tools/blog.py publish 2026-11-your-slug --push   # approve → live in ~30 seconds
+```
+
+`publish` moves the draft into `blog/`, adds it to `blog/posts.json` (this is what fills the blog
+page and the "From the Blog" section on the home page), adds it to `sitemap.xml`, and commits.
+Want changes first? Ask Claude to edit the draft, or just delete it. To write one by hand:
+`python3 tools/blog.py draft --slug … --title … --category … --excerpt … --body mybody.html`
+(`tools/blog.py` has the full instructions at the top). Articles use the same template, header
+and footer as every page (`tools/post-template.html`).
+
 ## Before going live — fill in these placeholders
 
 1. **Contact form (Web3Forms):** in `contact.html`, replace `YOUR_WEB3FORMS_ACCESS_KEY` with a
    free access key from <https://web3forms.com>. The form redirects to `thank-you.html` on success.
+   The same key powers the **Subscribe** box (it emails you each new signup): replace it in
+   `index.html`, `blog.html`, `tools/post-template.html` and every `blog/*.html` too — easiest is
+   to send the key to Claude, who replaces it everywhere in one pass.
 2. **Email address:** `hello@missionledgerbooks.com` is used site-wide — set up this inbox (or
    swap in the real address via find-and-replace).
 3. **Social links:** replace `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer, or remove

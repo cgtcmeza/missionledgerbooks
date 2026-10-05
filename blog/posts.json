@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "2026-10-welcome-to-the-blog",
+    "title": "Welcome to the Mission Ledger Books blog",
+    "date": "2026-10-05",
+    "category": "From the Ledger",
+    "excerpt": "What to expect from our monthly notes: practical, plain-English bookkeeping for nonprofits and growing businesses.",
+    "minutes": 1
+  },
+  {
+    "slug": "2026-10-month-end-checklist",
+    "title": "Five month-end checks that keep your books audit-ready",
+    "date": "2026-10-05",
+    "category": "Bookkeeping Basics",
+    "excerpt": "A simple monthly routine that catches errors early and keeps your financials ready for your board, lender, or CPA.",
+    "minutes": 2
+  },
+  {
+    "slug": "2026-10-restricted-funds-101",
+    "title": "Restricted funds 101: why nonprofits track grant money separately",
+    "date": "2026-10-05",
+    "category": "Nonprofit Bookkeeping",
+    "excerpt": "Donor and grant restrictions change how money must be recorded and reported. Here is the plain-English version.",
+    "minutes": 2
+  }
+]

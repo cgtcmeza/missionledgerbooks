@@ -165,6 +165,97 @@
     }
   }
 
+  /* ---- Founder photo: show the "MD" monogram if the file is missing -- */
+  document.querySelectorAll('.founder-photo img').forEach(function (img) {
+    function drop() { img.remove(); }
+    if (img.complete && img.naturalWidth === 0) drop();
+    else img.addEventListener('error', drop);
+  });
+
+  /* ---- Blog list ------------------------------------------------------ */
+  /* Any <div data-blog-list> is filled from blog/posts.json (newest first).
+       data-src   where posts.json lives      (default blog/posts.json)
+       data-base  folder the post pages are in (default blog/)
+       data-limit show only the latest N       (optional)
+     To publish a post, add it to posts.json — the site does the rest. */
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  function mk(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+  function prettyDate(iso) {
+    var d = new Date(iso + 'T12:00:00');
+    return isNaN(d) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  document.querySelectorAll('[data-blog-list]').forEach(function (box) {
+    var src = box.getAttribute('data-src') || 'blog/posts.json';
+    var base = box.getAttribute('data-base') || 'blog/';
+    var limit = parseInt(box.getAttribute('data-limit'), 10) || 0;
+
+    function message(text) { box.innerHTML = ''; box.appendChild(mk('p', 'post-empty', text)); }
+
+    fetch(src)
+      .then(function (r) { if (!r.ok) throw new Error('posts.json ' + r.status); return r.json(); })
+      .then(function (posts) {
+        posts = posts.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+        if (limit) posts = posts.slice(0, limit);
+        if (!posts.length) { message('New articles are on the way — check back soon.'); return; }
+        box.innerHTML = '';
+        posts.forEach(function (p) {
+          var a = mk('a', 'card card--hover post-card');
+          a.href = base + p.slug + '.html';
+          a.appendChild(mk('span', 'post-card__cat', p.category));
+          a.appendChild(mk('h3', 'h3', p.title));
+          a.appendChild(mk('p', '', p.excerpt));
+          var meta = mk('span', 'post-card__meta');
+          var t = mk('time', '', prettyDate(p.date));
+          t.setAttribute('datetime', p.date);
+          meta.appendChild(t);
+          meta.appendChild(document.createTextNode(' · ' + p.minutes + ' min read'));
+          a.appendChild(meta);
+          var more = mk('span', 'post-card__more', 'Read article');
+          more.insertAdjacentHTML('beforeend', ARROW);   // fixed icon markup, not post data
+          a.appendChild(more);
+          box.appendChild(a);
+        });
+      })
+      .catch(function () { message('Our articles couldn’t load just now — please refresh in a moment.'); });
+  });
+
+  /* ---- Subscribe form (Web3Forms, no page reload) ---------------------- */
+  document.querySelectorAll('form[data-subscribe]').forEach(function (form) {
+    var status = form.querySelector('.form__status');
+    var btn = form.querySelector('button[type="submit"]');
+    function say(msg, cls) {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = 'form__status' + (cls ? ' ' + cls : '');
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      if (data.get('botcheck')) return;               // honeypot tripped: quietly ignore
+      btn.disabled = true;
+      say('Subscribing…');
+      fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j || !j.success) throw new Error('rejected');
+          form.reset();
+          say('You’re in! Watch your inbox for the next note.', 'is-ok');
+        })
+        .catch(function () {
+          say('That didn’t go through — please try again or email hello@missionledgerbooks.com.', 'is-error');
+        })
+        .then(function () { btn.disabled = false; });
+    });
+  });
+
   /* ---- Footer year --------------------------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -10,3 +10,13 @@
 # Images rarely change — let browsers cache them for a week.
 /assets/img/*
   Cache-Control: public, max-age=604800
+
+# The blog list changes monthly — always check for a fresh copy so a new post shows up right away.
+/blog/posts.json
+  Cache-Control: no-cache
+
+# Internal helper files are public once deployed — keep them out of Google.
+/tools/*
+  X-Robots-Tag: noindex
+/*.md
+  X-Robots-Tag: noindex

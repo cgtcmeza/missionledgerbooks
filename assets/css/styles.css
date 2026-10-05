@@ -103,7 +103,7 @@
   /* Layout */
   --container-max: 1180px;
   --container-pad: clamp(1.25rem, 5vw, 3rem);
-  --section-pad-y: clamp(3.75rem, 8vw, 7rem);
+  --section-pad-y: clamp(3.25rem, 7vw, 5rem);
 
   /* Borders & radius */
   --radius-sm: 5px;
@@ -444,7 +444,11 @@ p { margin: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 900px) {
+/* Seven nav items need ~1080px to sit on one line; below that, use the menu button. */
+@media (min-width: 1081px) and (max-width: 1240px) {
+  .nav, .nav__links { gap: var(--space-5); }
+}
+@media (max-width: 1080px) {
   .nav-toggle { display: flex; }
   .nav {
     position: fixed;
@@ -1210,6 +1214,7 @@ p { margin: 0; }
 .mt-5 { margin-top: var(--space-5); }
 .mt-6 { margin-top: var(--space-6); }
 .mt-7 { margin-top: var(--space-7); }
+.mt-8 { margin-top: var(--space-8); }
 .mb-0 { margin-bottom: 0; }
 .maxw-prose { max-width: 62ch; }
 .full-height-card { height: 100%; }
@@ -1344,3 +1349,156 @@ p { margin: 0; }
    26. HOME FOUNDER STRIP  (compact "meet Michelle" for validity)
    ------------------------------------------------------------------ */
 .founder-home .founder-card { max-width: 380px; margin-inline: auto; }
+
+/* ------------------------------------------------------------------
+   27. FOUNDER PHOTO  (real portrait; the "MD" monogram shows instead
+       if assets/img/michelle-dodd.jpg is ever missing)
+   ------------------------------------------------------------------ */
+.founder-card--photo { padding-top: 0; overflow: hidden; }
+.founder-photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  margin: 0 calc(var(--space-6) * -1) var(--space-5);   /* bleed to the card edges */
+  background: radial-gradient(circle at 32% 26%, var(--green-bright), var(--green) 72%);
+}
+.founder-photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 12%;   /* keep the face centered near the top of the frame */
+}
+.founder-photo__fallback {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: var(--fw-heavy);
+  font-size: 4.5rem; letter-spacing: 0.02em; color: #fff;
+}
+
+/* ------------------------------------------------------------------
+   28. BLOG  (post cards, article typography, subscribe panel)
+   ------------------------------------------------------------------ */
+.post-card {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  height: 100%; color: inherit;
+}
+.post-card__cat {
+  font-size: var(--fs-eyebrow); font-weight: var(--fw-semi);
+  letter-spacing: var(--ls-wider); text-transform: uppercase; color: var(--green);
+}
+.post-card h3 { margin-bottom: 0; font-size: 1.3rem; line-height: var(--lh-snug); }
+.post-card p { flex: 1; }
+.post-card__meta { font-size: var(--fs-small); color: var(--ink-55); padding-top: var(--space-2); }
+.post-card__more {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-size: var(--fs-small); font-weight: var(--fw-semi); color: var(--green);
+}
+.post-card__more svg { width: 16px; height: 16px; transition: transform var(--dur) var(--ease); }
+.post-card:hover .post-card__more svg { transform: translateX(4px); }
+.post-empty {
+  grid-column: 1 / -1; text-align: center; color: var(--ink-70);
+  padding: var(--space-7) var(--space-5);
+  border: 1px dashed var(--ink-25); border-radius: var(--radius-lg);
+}
+
+/* Article page */
+.post-meta {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-5); font-size: var(--fs-small); color: var(--paper-70);
+}
+.post-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-soft); }
+.prose {
+  max-width: 42rem; margin-inline: auto;
+  font-size: 1.08rem; line-height: 1.8; color: var(--ink-85);
+}
+.prose > * + * { margin-top: var(--space-5); }
+.prose h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); margin-top: var(--space-8); }
+.prose h3 { font-size: 1.3rem; margin-top: var(--space-7); }
+.prose h2 + *, .prose h3 + * { margin-top: var(--space-4); }
+.prose ul, .prose ol { padding-left: 1.4rem; display: grid; gap: var(--space-3); }
+.prose ul { list-style: disc; }
+.prose ol { list-style: decimal; }
+.prose li::marker { color: var(--green); }
+.prose a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--green-hover); }
+.prose blockquote {
+  margin-inline: 0; padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--gold); background: var(--gold-20);
+  border-radius: var(--radius);
+  font-family: var(--font-display); font-size: 1.2rem; line-height: 1.5; color: var(--ink);
+}
+.prose .note {
+  font-size: var(--fs-small); color: var(--ink-55);
+  padding-top: var(--space-5); border-top: var(--border-hairline);
+}
+.post-footer {
+  max-width: 42rem; margin: var(--space-8) auto 0;
+  padding-top: var(--space-6); border-top: var(--border-hairline);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-4);
+}
+.post-footer p { color: var(--ink-70); font-size: var(--fs-small); }
+
+/* Subscribe panel — dark card with the Mission Ledger Books logo */
+.subscribe {
+  display: grid; grid-template-columns: auto 1fr minmax(0, 24rem);
+  align-items: center; gap: var(--space-6) var(--space-7);
+  padding: var(--space-7);
+  border-radius: var(--radius-lg);
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(79, 176, 136, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, var(--gold-20), transparent 45%),
+    var(--navy-deep);
+  box-shadow: var(--shadow-card);
+}
+.subscribe__logo { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
+.subscribe__logo svg { display: block; width: 88px; height: 88px; }
+.subscribe__logo span {
+  font-family: var(--font-display); font-weight: var(--fw-heavy); font-size: 1.05rem;
+  line-height: 1.15; letter-spacing: -0.01em;
+}
+.subscribe__logo small {
+  display: block; font-family: var(--font-body); font-weight: var(--fw-medium);
+  font-size: 0.6rem; letter-spacing: var(--ls-wider); text-transform: uppercase;
+  color: var(--paper-55); margin-top: 3px;
+}
+.subscribe .eyebrow { color: var(--green-bright); margin-bottom: var(--space-3); }
+.subscribe h3 { color: var(--paper); font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin-bottom: var(--space-2); }
+.subscribe p { color: var(--paper-70); }
+.subscribe__form { display: grid; gap: var(--space-3); }
+.subscribe__row { display: flex; gap: var(--space-3); }
+.subscribe__row input {
+  flex: 1; min-width: 0;
+  font-family: var(--font-body); font-size: var(--fs-body); color: var(--ink);
+  background: var(--paper); border: 1px solid transparent;
+  border-radius: var(--radius); padding: var(--space-3) var(--space-4);
+}
+.subscribe__row input:focus { outline: none; box-shadow: 0 0 0 3px var(--green-bright-25); }
+.subscribe__note { font-size: var(--fs-small); color: var(--paper-55); }
+.form__status { font-size: var(--fs-small); font-weight: var(--fw-medium); min-height: 1.4em; }
+.subscribe .form__status.is-ok { color: var(--green-bright); }
+.subscribe .form__status.is-error { color: var(--gold-soft); }
+@media (max-width: 960px) {
+  .subscribe { grid-template-columns: auto 1fr; }
+  .subscribe__form { grid-column: 1 / -1; }
+}
+@media (max-width: 620px) {
+  .subscribe { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: var(--space-6) var(--space-5); }
+  .subscribe__form { width: 100%; }
+  .subscribe__row { flex-direction: column; }
+}
+
+/* ------------------------------------------------------------------
+   29. PHONE FIXES  (found in the spacing sweep)
+   ------------------------------------------------------------------ */
+/* The floating "Board-ready" chip used to cover the dashboard card's last
+   stat labels on narrow screens — give the card room beneath its content. */
+@media (max-width: 520px) {
+  .dashcard { padding-bottom: calc(var(--space-6) + 3rem); }
+}
+/* Three inline stats stay in one row on phones instead of leaving the
+   third one orphaned on a second row. */
+@media (max-width: 700px) {
+  .stats--inline { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+}
