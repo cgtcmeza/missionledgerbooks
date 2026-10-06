@@ -134,3 +134,4 @@ Mission Ledger Books/
   monogram, old favicons and social card) with the official logo; footer shows the logo's descriptor + values lines.
 - Oct 5 2026 (palette): retuned every design token to the logo's colors (navy #02203D, olive #4B5D3F, gold #B5822F; sage/soft-gold for dark
   backgrounds), updated the hero chart + theme-color, darker gold for small text and a slightly darker caption gray for readability.
+- Oct 5 2026 (tab icon): the first favicon was a transparent mark that vanished on dark tab bars and there was no `/favicon.ico` (404). Rebuilt as logo-on-navy plate, added root `/favicon.ico`, new file names (Cloudflare caches `/assets/img/*` for 7 days). Safari caches tab icons per site for a long time — verify in a private window.
