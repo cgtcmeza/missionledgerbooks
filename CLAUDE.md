@@ -40,14 +40,16 @@ Mission Ledger Books/
 ## 5. Brand & voice
 - **Name:** Mission Ledger Books. **Tagline:** clear, professional bookkeeping for nonprofits and
   small-to-midsize businesses. **Motto:** “No job is too small or too big.”
-- **Palette:** ivory paper `--paper`, navy ink `--navy`, forest green `--green`, brass gold `--gold`.
+- **Palette (matched to the official logo, 2026-10-05):** ivory paper `--paper`, navy `--navy` #02203D, olive green `--green` #4B5D3F
+  (sage `--green-bright` #A5C58E on dark), gold `--gold` #B5822F (`--gold-ink` #8A6020 for small text on light, `--gold-soft` #E0B864 on dark).
+  All defined once in `:root`; never hardcode colors. Contrast checked: button text 7.2:1, captions 5.3:1.
 - **Type:** Fraunces (display serif) + Inter (body). **The brand name/wordmark uses Cinzel** (`--font-brand`), chosen to match the logo's lettering.
 - **Logo (official, supplied by the owner 2026-10-05):** navy "M" + olive-green "L" in a circle with an open book and gold chart bars; wordmark
   "MISSION LEDGER / BOOKS"; descriptor **"Financial Operations & Bookkeeping Support"**; values line **"Clarity. • Organization. • Purpose."**.
   Exact colors: navy `#02203D` (`--logo-navy`), green `#4B5D3F` (`--logo-green`), gold `#B5822F` (`--logo-gold`). Files in `assets/img/`:
   `logo-full.png` / `logo-full-light.png` (stacked, for light / dark backgrounds), `logo-mark.png` / `logo-mark-light.png` (just the ML circle),
   favicons, `apple-touch-icon.png`, `og-cover-v2.png`. The original is kept at `tools/logo-source.jpg`. Header/footer = mark image + live Cinzel text.
-  Never redraw or recolor the logo; use the light versions on navy backgrounds. Site accent green (`--green`) is still the original emerald, not the logo's olive.
+  Never redraw or recolor the logo; use the light versions on navy backgrounds. The site palette now uses these exact colors via the design tokens.
 - **Voice:** warm, clear, trustworthy, jargon-free. We are bookkeepers, not tax preparers — we
   coordinate with the client's CPA but do not file returns (keep this accurate in copy).
 - **Founder:** Michelle Dodd, **Intuit-Certified in QuickBooks**, **20+ years** accounting/finance experience
@@ -130,3 +132,5 @@ Mission Ledger Books/
   the same style into sitemap.xml. Internal links may still say `.html` (they redirect).
 - Oct 5 2026 (logo): replaced every old logo (inline-SVG marks in header/footer/subscribe/hero watermark/dashboard card, the About "ML"
   monogram, old favicons and social card) with the official logo; footer shows the logo's descriptor + values lines.
+- Oct 5 2026 (palette): retuned every design token to the logo's colors (navy #02203D, olive #4B5D3F, gold #B5822F; sage/soft-gold for dark
+  backgrounds), updated the hero chart + theme-color, darker gold for small text and a slightly darker caption gray for readability.

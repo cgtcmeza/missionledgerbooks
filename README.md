@@ -54,7 +54,7 @@ Mission Ledger Books/
 - **Single source of truth:** every color, font, and spacing value is a CSS variable in the
   `:root {}` block at the top of `assets/css/styles.css`. Change a token there and it updates
   everywhere. Never hardcode a hex value elsewhere.
-- **Palette:** warm ivory paper, deep navy ink, forest-green accent, brass-gold detail.
+- **Palette:** matched to the logo — warm ivory paper, logo navy, olive-green accent, logo-gold detail.
 - **Type:** Fraunces (display serif) + Inter (body), loaded from Google Fonts.
 - **Shared header & footer** are byte-for-byte identical on every page (only the active nav
   link's `aria-current="page"` differs).

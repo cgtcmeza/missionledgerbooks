@@ -14,36 +14,37 @@
    1. DESIGN TOKENS
    ------------------------------------------------------------------ */
 :root {
-  /* Core palette — ivory paper, navy ink, forest green, brass gold */
+  /* Core palette — matched to the official logo: navy #02203D, olive green #4B5D3F, gold #B5822F, on warm ivory */
   --paper:        #FBFAF6;  /* warm ivory — primary background         */
   --paper-2:      #FFFFFF;  /* pure white — raised cards on light       */
   --mist:         #F1F1EA;  /* soft neutral panel                       */
   --sand:         #ECE7D9;  /* warm sand neutral (borders / accents)    */
 
-  --green:        #1F6E4C;  /* primary forest green — accent / buttons  */
-  --green-hover:  #268A5F;  /* forest green, lightened for hover        */
-  --green-bright: #4FB088;  /* brighter green — accents on dark         */
-  --green-deep:   #123A2A;  /* dark green (secondary dark tone)         */
+  --green:        #4B5D3F;  /* logo olive green — accent / buttons      */
+  --green-hover:  #5E7450;  /* olive green, lightened for hover         */
+  --green-bright: #A5C58E;  /* logo sage green — accents on dark        */
+  --green-deep:   #2B3724;  /* dark olive (secondary dark tone)         */
 
-  --navy:         #16283B;  /* deep navy ink — body text + headings     */
-  --navy-2:       #1E3550;  /* mid navy — subtle gradients              */
-  --navy-deep:    #0F2032;  /* darker navy — dark sections              */
-  --navy-night:   #0A1826;  /* deepest navy — hero depth / footer       */
+  --navy:         #02203D;  /* logo navy — body text + headings         */
+  --navy-2:       #0D3760;  /* mid navy — subtle gradients              */
+  --navy-deep:    #021E38;  /* darker navy — dark sections              */
+  --navy-night:   #01111F;  /* deepest navy — hero depth / footer       */
 
-  --gold:         #B4894C;  /* brass gold — premium ruled-line accent   */
-  --gold-soft:    #D8BE8C;  /* lighter brass — labels on dark           */
+  --gold:         #B5822F;  /* logo gold — premium ruled-line accent    */
+  --gold-ink:     #8A6020;  /* darker gold for small text on light (AA) */
+  --gold-soft:    #E0B864;  /* logo gold, lightened — labels on dark    */
 
   /* Text token: navy ink reads as near-black on the warm base */
   --ink:      var(--navy);
 
-  /* Derived ink tones (built from navy #16283B) */
-  --ink-85:  rgba(22, 40, 59, 0.85);
-  --ink-70:  rgba(22, 40, 59, 0.70);
-  --ink-55:  rgba(22, 40, 59, 0.55);
-  --ink-40:  rgba(22, 40, 59, 0.40);
-  --ink-25:  rgba(22, 40, 59, 0.22);
-  --ink-12:  rgba(22, 40, 59, 0.12);
-  --ink-08:  rgba(22, 40, 59, 0.07);
+  /* Derived ink tones (built from navy #02203D) */
+  --ink-85:  rgba(2, 32, 61, 0.85);
+  --ink-70:  rgba(2, 32, 61, 0.70);
+  --ink-55:  rgba(2, 32, 61, 0.66);
+  --ink-40:  rgba(2, 32, 61, 0.40);
+  --ink-25:  rgba(2, 32, 61, 0.22);
+  --ink-12:  rgba(2, 32, 61, 0.12);
+  --ink-08:  rgba(2, 32, 61, 0.07);
 
   /* Paper tones (for text/borders on dark sections) */
   --paper-80: rgba(251, 250, 246, 0.82);
@@ -53,14 +54,14 @@
   --paper-08: rgba(251, 250, 246, 0.08);
 
   /* Green tints */
-  --green-15:        rgba(31, 110, 76, 0.11);
-  --green-25:        rgba(31, 110, 76, 0.24);
-  --green-bright-15: rgba(79, 176, 136, 0.15);
-  --green-bright-25: rgba(79, 176, 136, 0.28);
+  --green-15:        rgba(75, 93, 63, 0.11);
+  --green-25:        rgba(75, 93, 63, 0.24);
+  --green-bright-15: rgba(165, 197, 142, 0.15);
+  --green-bright-25: rgba(165, 197, 142, 0.28);
 
   /* Gold tints */
-  --gold-20: rgba(180, 137, 76, 0.22);
-  --gold-35: rgba(180, 137, 76, 0.38);
+  --gold-20: rgba(181, 130, 47, 0.22);
+  --gold-35: rgba(181, 130, 47, 0.38);
 
   /* Typography */
   --font-display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
@@ -68,11 +69,11 @@
 
   /* Logo lettering + the exact colors measured from the logo artwork */
   --font-brand: 'Cinzel', 'Trajan Pro', 'Cormorant SC', Georgia, serif;
-  --logo-navy:  #02203D;
-  --logo-green: #4B5D3F;
-  --logo-gold:  #B5822F;
-  --logo-green-light: #A5C58E;   /* logo green, lightened for dark backgrounds */
-  --logo-gold-light:  #E0B864;   /* logo gold, lightened for dark backgrounds   */
+  --logo-navy:  var(--navy);
+  --logo-green: var(--green);
+  --logo-gold:  var(--gold);
+  --logo-green-light: var(--green-bright);   /* for dark backgrounds */
+  --logo-gold-light:  var(--gold-soft);
 
   --fw-body:    400;
   --fw-medium:  500;
@@ -120,9 +121,9 @@
   --border-hairline: 1px solid var(--ink-12);
 
   /* Shadows */
-  --shadow-card: 0 24px 50px -34px rgba(15, 32, 50, 0.45);
-  --shadow-soft: 0 12px 30px -20px rgba(15, 32, 50, 0.35);
-  --shadow-btn:  0 14px 26px -14px rgba(31, 110, 76, 0.55);
+  --shadow-card: 0 24px 50px -34px rgba(2, 30, 56, 0.45);
+  --shadow-soft: 0 12px 30px -20px rgba(2, 30, 56, 0.35);
+  --shadow-btn:  0 14px 26px -14px rgba(75, 93, 63, 0.55);
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -227,8 +228,8 @@ p { margin: 0; }
 .section--mist  { background: var(--mist);  color: var(--ink); }
 .section--navy {
   background:
-    radial-gradient(circle at 80% 12%, rgba(79, 176, 136, 0.14), transparent 52%),
-    radial-gradient(circle at 12% 90%, rgba(180, 137, 76, 0.10), transparent 45%),
+    radial-gradient(circle at 80% 12%, rgba(165, 197, 142, 0.14), transparent 52%),
+    radial-gradient(circle at 12% 90%, rgba(181, 130, 47, 0.10), transparent 45%),
     var(--navy-deep);
   color: var(--paper);
 }
@@ -494,7 +495,7 @@ p { margin: 0; }
    ------------------------------------------------------------------ */
 .site-footer {
   background:
-    radial-gradient(circle at 85% 0%, rgba(79,176,136,0.10), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(165,197,142,0.10), transparent 45%),
     var(--navy-night);
   color: var(--paper);
   border-top: 3px solid var(--green);
@@ -587,8 +588,8 @@ p { margin: 0; }
   padding-top: calc(var(--header-h) + clamp(3rem, 7vw, 5.5rem));
   padding-bottom: clamp(3rem, 6vw, 4.5rem);
   background:
-    radial-gradient(120% 95% at 84% -5%, rgba(79, 176, 136, 0.22), transparent 55%),
-    radial-gradient(90% 80% at -5% 105%, rgba(180, 137, 76, 0.18), transparent 55%),
+    radial-gradient(120% 95% at 84% -5%, rgba(165, 197, 142, 0.22), transparent 55%),
+    radial-gradient(90% 80% at -5% 105%, rgba(181, 130, 47, 0.18), transparent 55%),
     linear-gradient(158deg, var(--navy-deep) 0%, var(--navy-night) 100%);
 }
 /* Faint ledger-grid backdrop */
@@ -799,7 +800,7 @@ p { margin: 0; }
               box-shadow var(--dur) var(--ease);
 }
 /* Subtle universal lift on any card */
-.card:hover { transform: translateY(-4px); box-shadow: 0 30px 56px -34px rgba(15, 32, 50, 0.5); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 30px 56px -34px rgba(2, 30, 56, 0.5); }
 
 /* Richer, satisfying hover for feature/service cards */
 .card--hover { position: relative; overflow: hidden; }
@@ -812,7 +813,7 @@ p { margin: 0; }
 .card--hover:hover {
   transform: translateY(-8px);
   border-color: var(--green-25);
-  box-shadow: 0 34px 66px -30px rgba(15, 32, 50, 0.58);
+  box-shadow: 0 34px 66px -30px rgba(2, 30, 56, 0.58);
 }
 .card--hover:hover::after { transform: scaleX(1); }
 .card--hover .card__icon, .card--hover .ic {
@@ -921,7 +922,7 @@ p { margin: 0; }
 .cta-band {
   position: relative; text-align: center; color: var(--paper);
   background:
-    radial-gradient(circle at 50% 0%, rgba(79,176,136,0.16), transparent 58%),
+    radial-gradient(circle at 50% 0%, rgba(165,197,142,0.16), transparent 58%),
     radial-gradient(circle at 15% 100%, var(--gold-20), transparent 40%),
     var(--navy-deep);
   border-top: 3px solid var(--green);
@@ -1038,7 +1039,7 @@ p { margin: 0; }
 }
 .price-card.is-featured {
   border-color: var(--gold-35);
-  box-shadow: 0 30px 60px -30px rgba(180, 137, 76, 0.4);
+  box-shadow: 0 30px 60px -30px rgba(181, 130, 47, 0.4);
 }
 .price-card__head { padding-bottom: var(--space-5); border-bottom: var(--border-hairline); margin-bottom: var(--space-5); }
 .price-card__name { font-family: var(--font-display); font-weight: var(--fw-heading); font-size: 1.3rem; }
@@ -1155,7 +1156,7 @@ p { margin: 0; }
 }
 .founder-name { font-size: 1.6rem; }
 .founder-role {
-  color: var(--gold); font-size: var(--fs-small); font-weight: var(--fw-semi);
+  color: var(--gold-ink); font-size: var(--fs-small); font-weight: var(--fw-semi);
   text-transform: uppercase; letter-spacing: var(--ls-wide);
   margin-top: var(--space-2); margin-bottom: var(--space-5);
 }
@@ -1259,8 +1260,8 @@ p { margin: 0; }
 .page-hero--dark {
   color: var(--paper);
   background:
-    radial-gradient(120% 95% at 84% -10%, rgba(79, 176, 136, 0.20), transparent 55%),
-    radial-gradient(90% 80% at -5% 115%, rgba(180, 137, 76, 0.16), transparent 55%),
+    radial-gradient(120% 95% at 84% -10%, rgba(165, 197, 142, 0.20), transparent 55%),
+    radial-gradient(90% 80% at -5% 115%, rgba(181, 130, 47, 0.16), transparent 55%),
     linear-gradient(158deg, var(--navy-deep) 0%, var(--navy-night) 100%);
 }
 .page-hero--dark::before {
@@ -1372,7 +1373,7 @@ p { margin: 0; }
 .price-card .checklist { text-align: left; margin-top: var(--space-2); }
 .price-card.is-featured {
   border-color: var(--gold-35);
-  box-shadow: 0 34px 66px -30px rgba(180, 137, 76, 0.42);
+  box-shadow: 0 34px 66px -30px rgba(181, 130, 47, 0.42);
 }
 @media (min-width: 921px) {
   .price-card.is-featured { transform: scale(1.04); }
@@ -1481,7 +1482,7 @@ p { margin: 0; }
   border-radius: var(--radius-lg);
   color: var(--paper);
   background:
-    radial-gradient(circle at 12% 0%, rgba(79, 176, 136, 0.18), transparent 55%),
+    radial-gradient(circle at 12% 0%, rgba(165, 197, 142, 0.18), transparent 55%),
     radial-gradient(circle at 100% 100%, var(--gold-20), transparent 45%),
     var(--navy-deep);
   box-shadow: var(--shadow-card);
