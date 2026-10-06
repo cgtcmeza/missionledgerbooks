@@ -15,7 +15,7 @@ every `git push` updates the live site automatically.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Home — hero, services overview, who we serve, how it works, founder, reviews, pricing teaser, latest blog posts + Subscribe |
+| `index.html` | Home — hero, services overview, who we serve, how it works, founder, pricing teaser, latest blog posts + Subscribe (no reviews until real ones exist) |
 | `services.html` | Detailed services + nonprofit specialty + what's included |
 | `pricing.html` | Three flat-fee plans + pricing FAQ |
 | `about.html` | Story, founder (Michelle Dodd + photo), values, and approach |
@@ -79,10 +79,9 @@ and footer as every page (`tools/post-template.html`).
 
 ## Before going live — fill in these placeholders
 
-1. **Subscribe box (Web3Forms):** replace `YOUR_WEB3FORMS_ACCESS_KEY` with a free access key from
-   <https://web3forms.com> (it emails Michelle each new signup). It appears in `index.html`, `blog.html`,
-   `tools/post-template.html` and every `blog/*.html` — easiest is to send the key to Claude, who replaces
-   it everywhere in one pass. (The Contact page has no form, so nothing else needs a key.)
+1. **Subscribe box:** right now it's an "Email to subscribe" button that emails Michelle. For a real sign-up form, get a free
+   Web3Forms key (<https://web3forms.com>) and swap the button block for the form in `tools/subscribe-form.html`
+   (index.html, blog.html, tools/post-template.html, blog/*.html) — easiest is to send the key to Claude.
 2. **Email address:** `michelle@missionledgerbooks.com` is Michelle's address, used site-wide (contact
    card, footer, search-engine data). Confirm it's right; to change it, find-and-replace it everywhere.
 3. **Social links:** replace `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer, or remove

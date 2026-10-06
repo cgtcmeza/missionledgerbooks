@@ -1,5 +1,11 @@
 # Go-Live Checklist — Mission Ledger Books
 
+> **STATUS 2026-10-05: THE SITE IS LIVE** at https://missionledgerbooks.com on Cloudflare Pages (nameservers moved,
+> domain attached). The steps below are kept as a record. What's still open: (1) get Michelle's OK on the 3 starter blog
+> posts, (2) add real client reviews when she has them, (3) optional: a Web3Forms key for a real Subscribe form,
+> (4) optional: submit `/sitemap.xml` in Google Search Console, (5) cancel the GoDaddy *Website* plan (NOT the domain or
+> the email) once you're sure nothing is needed from it. Michelle's email DNS records live in Cloudflare — never delete them.
+
 Everything in the code is ready. These are the only remaining human steps, in order.
 Check them off as you go.
 

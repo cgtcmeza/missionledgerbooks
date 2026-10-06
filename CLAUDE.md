@@ -54,8 +54,9 @@ Mission Ledger Books/
 - **Only real credentials:** "Intuit-Certified in QuickBooks" (per her bio — NOT "ProAdvisor" unless she
   confirms that term). Do NOT mention Xero anywhere (removed 2026-08-03 — not in her bio). Stats
   (20+ yrs, 98% retention, 100% on-time) confirmed accurate.
-- **Reviews on home page are PLACEHOLDERS** (Sarah R. / Marcus T. / Denise L.) — replace with real
-  client reviews before the site takes on prospects.
+- **No client reviews on the site yet (removed 2026-10-05 — the old ones were invented placeholders).** Only add REAL, permitted
+  reviews from Michelle's clients. Never add star ratings, fake names or unverifiable numbers. A reviews section can be restored
+  from git history (commit fe49e40, `index.html` section "7. REVIEWS") and re-filled with real quotes.
 
 ## 6. My working style
 - I work **iteratively and visually.** Build one thing, show me, I react in plain language, you
@@ -64,12 +65,13 @@ Mission Ledger Books/
 - Explain what you're doing in plain language. Assume I'm not a developer but can follow clear steps.
 
 ## 7. Open placeholders to fill before launch
-- `YOUR_WEB3FORMS_ACCESS_KEY` — now only in the Subscribe forms (`index.html`, `blog.html`,
-  `tools/post-template.html`, every `blog/*.html`). Get a free key at web3forms.com; replace everywhere at once.
-- Reviews on the home page are still placeholders until Michelle sends real ones (owner said to leave them for now).
+- **Subscribe is currently an "Email to subscribe" button** (mailto Michelle), because there is no Web3Forms key yet. When a key exists,
+  swap the button block (`<div class="subscribe__form">`) for the form in `tools/subscribe-form.html` on index.html, blog.html,
+  tools/post-template.html and every blog/*.html, and put the key in. Whoever owns the list must actually send the "new article" notes.
+- Add real reviews when Michelle sends them (see section 5).
 - `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer.
-- Confirm pricing figures, the marketing numbers in "By the Numbers" (12+ hrs saved, 5-day close, 0 tax-time
-  surprises) and the `michelle@missionledgerbooks.com` address with Michelle.
+- Confirm pricing figures and the `michelle@missionledgerbooks.com` address with Michelle. Keep numbers to facts from her bio
+  (20+ yrs, 6 systems) plus the owner-confirmed 98% retention / 100% on-time.
 
 ## 8. Version control (Git + GitHub)
 1. `git init`, sensible `.gitignore` (ignore `.DS_Store`, `node_modules/`, etc.).
@@ -116,3 +118,7 @@ Mission Ledger Books/
   Mon–Sat to match GoDaddy; "Individuals / personal bookkeeping" added to Home + FAQ; footer column labels are
   `<p class="footer-title">` (no skipped heading levels). Owner will move the domain himself and said to leave
   Michelle's email/MX records for now.
+- Oct 5 2026 (go-live fixes): removed the placeholder reviews + 5-star badge; replaced the invented "12+ hrs / 5-day / 0 surprises"
+  stats with bio facts (20+ yrs, 6 systems); Subscribe form -> mailto button (no key); canonical, og:url and sitemap now use the
+  extensionless URLs Cloudflare serves (`/about`, `/blog/<slug>` — Cloudflare 308-redirects `.html` to these); `tools/blog.py` writes
+  the same style into sitemap.xml. Internal links may still say `.html` (they redirect).

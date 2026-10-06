@@ -1,0 +1,18 @@
+<!-- Subscribe form (Web3Forms). Use this to replace the 'Email to subscribe' button block
+     (<div class="subscribe__form">…</div>) on index.html, blog.html, tools/post-template.html and every blog/*.html
+     once you have a Web3Forms access key. Replace YOUR_WEB3FORMS_ACCESS_KEY with the key. -->
+<form class="subscribe__form" data-subscribe action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New newsletter signup — Mission Ledger Books">
+            <input type="hidden" name="from_name" value="Mission Ledger Books Website">
+            <div class="form__gotcha" aria-hidden="true">
+              <label for="botcheck-sub">Leave this field empty</label>
+              <input type="checkbox" id="botcheck-sub" name="botcheck" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="subscribe__row">
+              <label class="sr-only" for="sub-email">Email address</label>
+              <input type="email" id="sub-email" name="email" placeholder="Your email address" autocomplete="email" required>
+              <button class="btn btn--primary" type="submit">Subscribe</button>
+            </div>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>

@@ -136,7 +136,7 @@ def cmd_publish(a):
     posts.insert(0, meta)
     write_manifest(posts)
 
-    url = "{}/blog/{}.html".format(SITE, meta["slug"])
+    url = "{}/blog/{}".format(SITE, meta["slug"])
     sm = SITEMAP.read_text(encoding="utf-8")
     if url not in sm:
         entry = ("  <url>\n    <loc>{}</loc>\n    <lastmod>{}</lastmod>\n"
