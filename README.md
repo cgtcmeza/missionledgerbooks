@@ -41,7 +41,7 @@ Mission Ledger Books/
 ├── assets/
 │   ├── css/styles.css     ← ALL styling; design tokens live in :root at the top
 │   ├── js/main.js         ← nav toggle, header scroll state, scroll-reveal, count-up
-│   └── img/               ← logo/photos (brand mark is inline SVG; Michelle's photo = michelle-dodd.jpg)
+│   └── img/               ← logo files (logo-full / logo-mark, each with a -light version for dark backgrounds), favicons, social card, Michelle's photo
 ├── robots.txt
 ├── sitemap.xml
 ├── CLAUDE.md              ← house rules for how this site is built

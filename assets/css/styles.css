@@ -66,6 +66,14 @@
   --font-display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
+  /* Logo lettering + the exact colors measured from the logo artwork */
+  --font-brand: 'Cinzel', 'Trajan Pro', 'Cormorant SC', Georgia, serif;
+  --logo-navy:  #02203D;
+  --logo-green: #4B5D3F;
+  --logo-gold:  #B5822F;
+  --logo-green-light: #A5C58E;   /* logo green, lightened for dark backgrounds */
+  --logo-gold-light:  #E0B864;   /* logo gold, lightened for dark backgrounds   */
+
   --fw-body:    400;
   --fw-medium:  500;
   --fw-semi:    600;
@@ -383,24 +391,31 @@ p { margin: 0; }
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  font-family: var(--font-display);
-  font-weight: var(--fw-heavy);
-  letter-spacing: -0.01em;
-  font-size: 1.24rem;
-  color: var(--ink);
+  color: var(--logo-navy);
 }
-.brand img { height: 40px; width: auto; }
-.brand__mark { flex: none; }
-.brand__mark svg { display: block; width: 38px; height: 38px; }
+.brand__logo { display: block; width: 46px; height: 46px; flex: none; }
+.brand__name {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--logo-navy);
+  white-space: nowrap;
+}
+/* "—— BOOKS ——" exactly like the logo: spaced green caps between two thin rules */
 .brand__name small {
-  display: block;
-  font-family: var(--font-body);
-  font-weight: var(--fw-medium);
-  font-size: 0.62rem;
-  letter-spacing: var(--ls-wider);
+  display: flex; align-items: center; gap: 0.6em;
+  font-family: var(--font-brand);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: var(--ink-55);
-  margin-top: 1px;
+  color: var(--logo-green);
+  margin-top: 4px;
+}
+.brand__name small::before, .brand__name small::after {
+  content: ""; flex: 1; height: 1px; background: currentColor; opacity: 0.55;
 }
 
 .nav { display: flex; align-items: center; gap: var(--space-6); }
@@ -485,8 +500,18 @@ p { margin: 0; }
   border-top: 3px solid var(--green);
   padding-block: var(--space-8) var(--space-6);
 }
-.site-footer .brand { color: var(--paper); }
-.site-footer .brand__name small { color: var(--paper-55); }
+.site-footer .brand, .site-footer .brand__name { color: var(--paper); }
+.site-footer .brand__name small { color: var(--logo-green-light); }
+.footer-brand .footer-descriptor {
+  font-family: var(--font-brand); font-weight: 500;
+  font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--logo-green-light); max-width: none; margin-bottom: var(--space-3);
+}
+.footer-brand .footer-values {
+  font-family: var(--font-brand); font-weight: 500;
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--logo-gold-light); max-width: none; margin-top: var(--space-4);
+}
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
@@ -1079,6 +1104,7 @@ p { margin: 0; }
   display: inline-flex; align-items: center; justify-content: center;
   font-family: var(--font-display); font-weight: var(--fw-heavy); font-size: 1.2rem;
 }
+.quote-attr img.avatar { background: var(--paper-2); border: 1px solid var(--ink-12); padding: 4px; object-fit: contain; }
 .quote-attr strong { display: block; color: var(--ink); font-family: var(--font-body); }
 .section--navy .quote-attr strong { color: var(--paper); }
 .quote-attr span { font-size: var(--fs-small); color: var(--ink-55); }
@@ -1279,11 +1305,11 @@ p { margin: 0; }
   opacity: 0.07; z-index: 0; pointer-events: none;
   color: var(--paper);
 }
-.hero__watermark svg { width: 100%; height: auto; display: block; }
+.hero__watermark img { width: 100%; height: auto; display: block; }
 
 /* Small brand mark inside the dashboard card (shows it "came from" MLB) */
 .dashcard__brand { display: inline-flex; align-items: center; }
-.dashcard__brand svg { width: 26px; height: 26px; display: block; }
+.dashcard__brand img { width: 28px; height: 28px; display: block; }
 
 /* ------------------------------------------------------------------
    23. ANIMATED CHECK-OFF  (checklist ticks pop in on scroll)
@@ -1460,17 +1486,8 @@ p { margin: 0; }
     var(--navy-deep);
   box-shadow: var(--shadow-card);
 }
-.subscribe__logo { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); text-align: center; }
-.subscribe__logo svg { display: block; width: 88px; height: 88px; }
-.subscribe__logo span {
-  font-family: var(--font-display); font-weight: var(--fw-heavy); font-size: 1.05rem;
-  line-height: 1.15; letter-spacing: -0.01em;
-}
-.subscribe__logo small {
-  display: block; font-family: var(--font-body); font-weight: var(--fw-medium);
-  font-size: 0.6rem; letter-spacing: var(--ls-wider); text-transform: uppercase;
-  color: var(--paper-55); margin-top: 3px;
-}
+.subscribe__logo { display: flex; justify-content: center; }
+.subscribe__logo img { display: block; width: 215px; max-width: 100%; height: auto; }
 .subscribe .eyebrow { color: var(--green-bright); margin-bottom: var(--space-3); }
 .subscribe h3 { color: var(--paper); font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin-bottom: var(--space-2); }
 .subscribe p { color: var(--paper-70); }

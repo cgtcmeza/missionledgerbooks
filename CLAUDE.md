@@ -41,7 +41,13 @@ Mission Ledger Books/
 - **Name:** Mission Ledger Books. **Tagline:** clear, professional bookkeeping for nonprofits and
   small-to-midsize businesses. **Motto:** “No job is too small or too big.”
 - **Palette:** ivory paper `--paper`, navy ink `--navy`, forest green `--green`, brass gold `--gold`.
-- **Type:** Fraunces (display serif) + Inter (body).
+- **Type:** Fraunces (display serif) + Inter (body). **The brand name/wordmark uses Cinzel** (`--font-brand`), chosen to match the logo's lettering.
+- **Logo (official, supplied by the owner 2026-10-05):** navy "M" + olive-green "L" in a circle with an open book and gold chart bars; wordmark
+  "MISSION LEDGER / BOOKS"; descriptor **"Financial Operations & Bookkeeping Support"**; values line **"Clarity. • Organization. • Purpose."**.
+  Exact colors: navy `#02203D` (`--logo-navy`), green `#4B5D3F` (`--logo-green`), gold `#B5822F` (`--logo-gold`). Files in `assets/img/`:
+  `logo-full.png` / `logo-full-light.png` (stacked, for light / dark backgrounds), `logo-mark.png` / `logo-mark-light.png` (just the ML circle),
+  favicons, `apple-touch-icon.png`, `og-cover.png`. The original is kept at `tools/logo-source.jpg`. Header/footer = mark image + live Cinzel text.
+  Never redraw or recolor the logo; use the light versions on navy backgrounds. Site accent green (`--green`) is still the original emerald, not the logo's olive.
 - **Voice:** warm, clear, trustworthy, jargon-free. We are bookkeepers, not tax preparers — we
   coordinate with the client's CPA but do not file returns (keep this accurate in copy).
 - **Founder:** Michelle Dodd, **Intuit-Certified in QuickBooks**, **20+ years** accounting/finance experience
@@ -122,3 +128,5 @@ Mission Ledger Books/
   stats with bio facts (20+ yrs, 6 systems); Subscribe form -> mailto button (no key); canonical, og:url and sitemap now use the
   extensionless URLs Cloudflare serves (`/about`, `/blog/<slug>` — Cloudflare 308-redirects `.html` to these); `tools/blog.py` writes
   the same style into sitemap.xml. Internal links may still say `.html` (they redirect).
+- Oct 5 2026 (logo): replaced every old logo (inline-SVG marks in header/footer/subscribe/hero watermark/dashboard card, the About "ML"
+  monogram, old favicons and social card) with the official logo; footer shows the logo's descriptor + values lines.
