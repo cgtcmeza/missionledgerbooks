@@ -59,7 +59,7 @@ box, which needs a free key so signups reach Michelle's inbox.
 ## 6. Optional polish (whenever)
 - [ ] Add real **Facebook / LinkedIn** links (removed for launch — send them to Claude to re-add).
 - [ ] Confirm the **email** `michelle@missionledgerbooks.com` inbox exists (or swap in your real address).
-- [ ] Confirm the **pricing** figures ($350 / $650 / Custom).
+- [ ] Confirm the **pricing** figures ($450 / $850 / Custom).
 - [ ] Submit `sitemap.xml` in **Google Search Console** for faster indexing.
 
 ---

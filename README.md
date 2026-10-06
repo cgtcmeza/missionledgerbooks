@@ -86,7 +86,7 @@ and footer as every page (`tools/post-template.html`).
    card, footer, search-engine data). Confirm it's right; to change it, find-and-replace it everywhere.
 3. **Social links:** replace `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer, or remove
    the icons if there are no profiles yet.
-4. **Pricing:** the plan prices ($350 / $650 / Custom) are sensible starting points — confirm or
+4. **Pricing:** the plan prices ($450 / $850 / Custom) are sensible starting points — confirm or
    adjust in `pricing.html` and the home-page teaser in `index.html`.
 5. **Phone:** `(314) 397-8863` is wired throughout (`tel:+13143978863`). Update if it changes.
 
