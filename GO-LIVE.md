@@ -6,27 +6,24 @@ Check them off as you go.
 ---
 
 ## 0. Before you start — things only you can do (do these first)
-- [ ] **Add Michelle's photo.** Save the photo from Pam's Aug 19 email (`IMG_20240418_183050~2.jpg`)
-      and give it to Claude — it crops/compresses it to `assets/img/michelle-dodd.jpg`. Until then the
-      site shows a clean "MD" placeholder in that spot.
 - [ ] **Read the 3 starter blog posts** in `blog/` (they were drafted by Claude as examples — Michelle
       should approve the wording before launch). Dates say Oct 5, 2026; adjust if you launch later.
 - [ ] **GoDaddy → before you move the domain:** the current live site is the old GoDaddy Website
       Builder site. Moving the domain replaces it. Export anything you want to keep first:
-      GoDaddy **Subscribe** list (email signups), **Bookings**, and any **contact form** history.
+      GoDaddy **Subscribe** list (email signups), **Bookings**, and anything else you want to keep from the old site.
       The new site has no booking calendar or customer accounts (the old "Sign In / Create Account /
       Bookings" links go away); Michelle's phone/email are on every page instead.
       If Michelle has **email on this domain through GoDaddy**, keep those MX records when you add the
       site to Cloudflare (step 3 below) or her email stops arriving.
 
-## 1. Turn on the contact form (2 min)
-The form is fully built; it just needs a free key so submissions reach your inbox.
+## 1. Turn on the Subscribe box (2 min)
+The Contact page is just Michelle's email/phone card (no form). The only form left is the blog's Subscribe
+box, which needs a free key so signups reach Michelle's inbox.
 
 - [ ] Go to <https://web3forms.com>, enter the email where you want inquiries delivered, and they'll
       email you an **Access Key** (a long code). No password/account to manage.
-- [ ] In `contact.html`, find `YOUR_WEB3FORMS_ACCESS_KEY` and paste your key in its place.
-- [ ] Do the same in `index.html`, `blog.html`, `tools/post-template.html` and every file in `blog/`
-      (this key also powers the Subscribe box).
+- [ ] Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `index.html`, `blog.html`, `tools/post-template.html` and every
+      file in `blog/`.
 - [ ] Save, then `git add -A && git commit -m "Add Web3Forms key" && git push`.
 
 *(Easiest: send Claude the key and it replaces it in every file at once.)*
@@ -55,7 +52,7 @@ The form is fully built; it just needs a free key so submissions reach your inbo
 
 ## 6. Optional polish (whenever)
 - [ ] Add real **Facebook / LinkedIn** links (removed for launch — send them to Claude to re-add).
-- [ ] Confirm the **email** `hello@missionledgerbooks.com` inbox exists (or swap in your real address).
+- [ ] Confirm the **email** `michelle@missionledgerbooks.com` inbox exists (or swap in your real address).
 - [ ] Confirm the **pricing** figures ($350 / $650 / Custom).
 - [ ] Submit `sitemap.xml` in **Google Search Console** for faster indexing.
 

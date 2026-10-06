@@ -498,13 +498,14 @@ p { margin: 0; }
   max-width: 34ch;
   font-size: var(--fs-small);
 }
-.footer-col h4 {
+.footer-col .footer-title {
   font-family: var(--font-body);
   font-weight: var(--fw-semi);
   text-transform: uppercase;
   font-size: 0.78rem;
   letter-spacing: var(--ls-wide);
   color: var(--gold-soft);
+  padding: 0;
   margin-bottom: var(--space-4);
 }
 .footer-col a, .footer-col p {
@@ -1176,31 +1177,38 @@ p { margin: 0; }
 .contact-list .label { font-size: 0.76rem; text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--ink-55); }
 .contact-list a, .contact-list .val { font-weight: var(--fw-medium); color: var(--ink); }
 .contact-list a:hover { color: var(--green); }
+.contact-list a { overflow-wrap: anywhere; }
+
+/* Contact page card (Michelle's direct details) */
+.contact-card { padding: var(--space-7); }
+.contact-card:hover { transform: none; }   /* a form-like card shouldn't float on hover */
+.contact-card__head { display: flex; align-items: center; gap: var(--space-5); margin-bottom: var(--space-6); }
+.contact-card__head .eyebrow { margin-bottom: 0; }
+.contact-card__head .founder-role { margin-bottom: 0; }
+.contact-card__photo {
+  width: 104px; height: 104px; flex: none;
+  border-radius: 50%; object-fit: cover; object-position: 50% 30%;
+  border: 3px solid var(--paper-2); box-shadow: 0 0 0 2px var(--gold-35), var(--shadow-soft);
+}
+.contact-card__list { grid-template-columns: repeat(2, 1fr); gap: var(--space-5) var(--space-6); }
+.contact-card__list li:first-child { grid-column: 1 / -1; }   /* the email gets a full row so it never wraps */
+.contact-card__actions { margin-top: var(--space-7); }
+@media (max-width: 620px) {
+  .contact-card { padding: var(--space-6) var(--space-4); }
+  .contact-card__head { flex-direction: column; text-align: center; }
+  .contact-card__head .eyebrow { justify-content: center; }
+  .contact-card__list { grid-template-columns: 1fr; }
+  .contact-card__list a[href^="mailto"] { font-size: 0.92rem; }   /* keep the full address on one line */
+  .contact-card__actions { flex-direction: column; align-items: stretch; }
+  .contact-card__actions .btn { width: 100%; }
+}
+@media (max-width: 380px) {
+  .contact-card__list a[href^="mailto"] { font-size: 0.8rem; }
+}
 
 /* ------------------------------------------------------------------
-   19. FORMS
+   19. FORM HELPERS  (the Subscribe box is the only form on the site)
    ------------------------------------------------------------------ */
-.form { display: grid; gap: var(--space-5); }
-.form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
-@media (max-width: 560px) { .form__grid { grid-template-columns: 1fr; } }
-.form__field { display: grid; gap: var(--space-2); }
-.form__label {
-  font-weight: var(--fw-semi); font-size: var(--fs-small); color: var(--ink-85);
-}
-.form__label .req { color: var(--gold); margin-left: 2px; }
-.form input, .form select, .form textarea {
-  width: 100%; font-family: var(--font-body); font-size: var(--fs-body);
-  line-height: var(--lh-snug); color: var(--ink);
-  background: var(--paper); border: 1px solid var(--ink-25);
-  border-radius: var(--radius); padding: var(--space-3) var(--space-4);
-  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-}
-.form textarea { min-height: 9rem; resize: vertical; }
-.form input::placeholder, .form textarea::placeholder { color: var(--ink-40); }
-.form input:focus, .form select:focus, .form textarea:focus {
-  outline: none; border-color: var(--green); box-shadow: 0 0 0 3px var(--green-15);
-}
-.form__note { font-size: var(--fs-small); color: var(--ink-55); }
 .form__gotcha { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ------------------------------------------------------------------

@@ -250,7 +250,7 @@
           say('You’re in! Watch your inbox for the next note.', 'is-ok');
         })
         .catch(function () {
-          say('That didn’t go through — please try again or email hello@missionledgerbooks.com.', 'is-error');
+          say('That didn’t go through — please try again or email michelle@missionledgerbooks.com.', 'is-error');
         })
         .then(function () { btn.disabled = false; });
     });

@@ -22,8 +22,7 @@ every `git push` updates the live site automatically.
 | `faq.html` | Common questions, grouped |
 | `blog.html` | The blog — every article, newest first (filled from `blog/posts.json`) + Subscribe |
 | `blog/*.html` | Individual articles |
-| `contact.html` | Contact form (Web3Forms) + direct contact details |
-| `thank-you.html` | Post-submit confirmation page |
+| `contact.html` | Contact card — Michelle's email, phone, location and hours (no form) |
 
 ## Project structure
 
@@ -36,7 +35,6 @@ Mission Ledger Books/
 ├── faq.html
 ├── blog.html
 ├── contact.html
-├── thank-you.html
 ├── blog/                  ← published articles + posts.json (the list of posts)
 ├── blog-drafts/           ← monthly drafts waiting for approval (git-ignored, never public)
 ├── tools/                 ← blog.py (draft / publish helper) + post-template.html
@@ -81,13 +79,12 @@ and footer as every page (`tools/post-template.html`).
 
 ## Before going live — fill in these placeholders
 
-1. **Contact form (Web3Forms):** in `contact.html`, replace `YOUR_WEB3FORMS_ACCESS_KEY` with a
-   free access key from <https://web3forms.com>. The form redirects to `thank-you.html` on success.
-   The same key powers the **Subscribe** box (it emails you each new signup): replace it in
-   `index.html`, `blog.html`, `tools/post-template.html` and every `blog/*.html` too — easiest is
-   to send the key to Claude, who replaces it everywhere in one pass.
-2. **Email address:** `hello@missionledgerbooks.com` is used site-wide — set up this inbox (or
-   swap in the real address via find-and-replace).
+1. **Subscribe box (Web3Forms):** replace `YOUR_WEB3FORMS_ACCESS_KEY` with a free access key from
+   <https://web3forms.com> (it emails Michelle each new signup). It appears in `index.html`, `blog.html`,
+   `tools/post-template.html` and every `blog/*.html` — easiest is to send the key to Claude, who replaces
+   it everywhere in one pass. (The Contact page has no form, so nothing else needs a key.)
+2. **Email address:** `michelle@missionledgerbooks.com` is Michelle's address, used site-wide (contact
+   card, footer, search-engine data). Confirm it's right; to change it, find-and-replace it everywhere.
 3. **Social links:** replace `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer, or remove
    the icons if there are no profiles yet.
 4. **Pricing:** the plan prices ($350 / $650 / Custom) are sensible starting points — confirm or

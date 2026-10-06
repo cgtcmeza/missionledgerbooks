@@ -12,7 +12,7 @@ exactly.
 ## 2. Project structure — plain static files, no build step, no framework
 ```
 Mission Ledger Books/
-├── index.html · services.html · pricing.html · about.html · faq.html · blog.html · contact.html · thank-you.html · 404.html
+├── index.html · services.html · pricing.html · about.html · faq.html · blog.html · contact.html · 404.html
 ├── blog/                   (published articles + posts.json — the list that feeds blog.html and the home page)
 ├── blog-drafts/            (monthly drafts awaiting approval — GIT-IGNORED, never public)
 ├── tools/                  (blog.py helper + post-template.html)
@@ -47,9 +47,10 @@ Mission Ledger Books/
 - **Founder:** Michelle Dodd, **Intuit-Certified in QuickBooks**, **20+ years** accounting/finance experience
   (AP/AR, general ledger, reconciliations, reporting, payroll). Full bio + systems strip on About.
   Systems she works across: QuickBooks, SAP Concur, BlackLine, Oracle NetSuite, Sage Intacct, MS Dynamics GP.
-- **Contact:** phone (314) 397-8863 → `tel:+13143978863` (⚠ 314 is a St. Louis area code — confirm/replace
-  with a Las Vegas number); email `hello@missionledgerbooks.com`; **Las Vegas, NV**; by appointment
-  Mon–Fri; serves clients nationwide/remotely.
+- **Contact:** phone (314) 397-8863 → `tel:+13143978863` (the same number is on the old GoDaddy site);
+  email `michelle@missionledgerbooks.com` (Michelle's address, shown on the contact card — there is NO contact form);
+  **Las Vegas, NV**; **by appointment Mon–Sat, Sunday closed** (matches the GoDaddy site); serves clients
+  nationwide/remotely. Also offers personal bookkeeping (stated in the owner's own GoDaddy description).
 - **Only real credentials:** "Intuit-Certified in QuickBooks" (per her bio — NOT "ProAdvisor" unless she
   confirms that term). Do NOT mention Xero anywhere (removed 2026-08-03 — not in her bio). Stats
   (20+ yrs, 98% retention, 100% on-time) confirmed accurate.
@@ -63,11 +64,12 @@ Mission Ledger Books/
 - Explain what you're doing in plain language. Assume I'm not a developer but can follow clear steps.
 
 ## 7. Open placeholders to fill before launch
-- `YOUR_WEB3FORMS_ACCESS_KEY` — in `contact.html` AND the Subscribe forms (`index.html`, `blog.html`,
+- `YOUR_WEB3FORMS_ACCESS_KEY` — now only in the Subscribe forms (`index.html`, `blog.html`,
   `tools/post-template.html`, every `blog/*.html`). Get a free key at web3forms.com; replace everywhere at once.
-- Founder photo: `assets/img/michelle-dodd.jpg` (see section 10). The site shows an "MD" monogram until it exists.
+- Reviews on the home page are still placeholders until Michelle sends real ones (owner said to leave them for now).
 - `[FACEBOOK URL]` and `[LINKEDIN URL]` in every footer.
-- Confirm pricing figures and the `hello@missionledgerbooks.com` inbox.
+- Confirm pricing figures, the marketing numbers in "By the Numbers" (12+ hrs saved, 5-day close, 0 tax-time
+  surprises) and the `michelle@missionledgerbooks.com` address with Michelle.
 
 ## 8. Version control (Git + GitHub)
 1. `git init`, sensible `.gitignore` (ignore `.DS_Store`, `node_modules/`, etc.).
@@ -104,3 +106,9 @@ Mission Ledger Books/
 - Oct 2026 sweep: tightened section padding (`--section-pad-y`), fixed hero chip overlap + orphaned stat on phones,
   menu button now appears <=1080px (7 nav items), Contact hero made dark like other pages, About "approach"
   block made light (was dark-on-dark with the CTA), sitemap now lists faq/blog/posts.
+- Oct 5 2026 (second pass): owner approved the April-2024 photo (now `assets/img/michelle-dodd.jpg`, 1000x1000,
+  cropped head+shoulders, metadata stripped); contact FORM replaced by a contact card (email/phone/location/hours);
+  `thank-you.html` deleted (nothing uses it now); email switched hello@ → michelle@ site-wide; hours changed to
+  Mon–Sat to match GoDaddy; "Individuals / personal bookkeeping" added to Home + FAQ; footer column labels are
+  `<p class="footer-title">` (no skipped heading levels). Owner will move the domain himself and said to leave
+  Michelle's email/MX records for now.
