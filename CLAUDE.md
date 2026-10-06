@@ -98,8 +98,12 @@ Mission Ledger Books/
 - Don't repeat a topic already in `posts.json`. Use the 3 starter posts as the voice/format reference.
 
 ## 11. Status & history
-- **The rebuilt site is NOT live yet.** missionledgerbooks.com is still the old GoDaddy Website Builder site
-  (nameservers at GoDaddy). Going live = `GO-LIVE.md`. Old GoDaddy site had a Subscribe widget + empty "My Blog".
+- **LIVE since 2026-10-05.** missionledgerbooks.com (+ www) is served by Cloudflare Pages (project `missionledgerbooks`,
+  GitHub `cgtcmeza/missionledgerbooks` `main`; every `git push` redeploys in ~30 s). Domain stays REGISTERED at GoDaddy;
+  nameservers = `aisha.ns.cloudflare.com` + `howard.ns.cloudflare.com`. **Michelle's email is Microsoft 365 via GoDaddy** — the
+  Cloudflare DNS records for it (MX, SPF/NETORGFT/_dmarc TXT, autodiscover/lyncdiscover/msoid/sip/email/selector1+2 CNAMEs,
+  2 SRV) must all stay DNS-only (gray cloud) and must never be deleted. Old GoDaddy Website Builder site is replaced (its
+  paid plan can be cancelled separately; do NOT cancel the domain or email products).
 - Contact people: **Pam (Pamela Kendall, Christian's mom)** relays requests; **Michelle Dodd** is the business
   owner/founder (Pam's friend). Pam's Aug 19 2026 email (to ccmezaa@gmail.com) had 2 photos of Michelle; the
   April 2024 one (`IMG_20240418_183050~2.jpg`) was chosen for the site.
