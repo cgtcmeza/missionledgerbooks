@@ -46,7 +46,7 @@ Mission Ledger Books/
   "MISSION LEDGER / BOOKS"; descriptor **"Financial Operations & Bookkeeping Support"**; values line **"Clarity. • Organization. • Purpose."**.
   Exact colors: navy `#02203D` (`--logo-navy`), green `#4B5D3F` (`--logo-green`), gold `#B5822F` (`--logo-gold`). Files in `assets/img/`:
   `logo-full.png` / `logo-full-light.png` (stacked, for light / dark backgrounds), `logo-mark.png` / `logo-mark-light.png` (just the ML circle),
-  favicons, `apple-touch-icon.png`, `og-cover.png`. The original is kept at `tools/logo-source.jpg`. Header/footer = mark image + live Cinzel text.
+  favicons, `apple-touch-icon.png`, `og-cover-v2.png`. The original is kept at `tools/logo-source.jpg`. Header/footer = mark image + live Cinzel text.
   Never redraw or recolor the logo; use the light versions on navy backgrounds. Site accent green (`--green`) is still the original emerald, not the logo's olive.
 - **Voice:** warm, clear, trustworthy, jargon-free. We are bookkeepers, not tax preparers — we
   coordinate with the client's CPA but do not file returns (keep this accurate in copy).
